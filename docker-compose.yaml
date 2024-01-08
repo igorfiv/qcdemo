@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Docker/api/Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --reload
+    volumes:
+      - .:/app
+    ports:
+      - 8008:8000
+  vuejs:
+    build:
+      context: .
+      dockerfile: ./Docker/web/Dockerfile
+    command: yarn dev
+    volumes:
+      - ./vuejs/:/usr/src/app/
+      - /usr/src/app/node_modules
+    ports:
+      - 8080:3000
