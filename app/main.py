@@ -1,5 +1,3 @@
-# app/main.py
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .find_x import run_calculation
@@ -27,7 +25,6 @@ def read_root():
 
 @app.get("/calculate/")
 async def calculate(value_a: float = 0, value_b: float = 0, target: float = 0, method: str = "fsolve"):
-    print("method", method)
     result = run_calculation(value_a, value_b, target, method)
 
     return {"result": result}

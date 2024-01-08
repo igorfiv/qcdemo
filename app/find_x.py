@@ -1,3 +1,6 @@
+# Here represented the solution to solve the equation x^a+b^x=result
+# using two methods from the SciPy library (fsolve and newton)
+
 from scipy import optimize
 
 __all__ = ["run_calculation"]
